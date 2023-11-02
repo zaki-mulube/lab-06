@@ -1,43 +1,162 @@
 ---
-title: "Lab 06 - Under Constuction"
-author: "INSERT YOUR NAME HERE"
+title: "Lab 06 - Functions and iterations"
+author: "INSERT NAME HERE"
 date: "`r Sys.Date()`"
 output: html_document
 ---
 
-```{r load-packages, message = FALSE, warning=FALSE, echo = FALSE}
-library(emo)
-#devtools::install_github("hadley/emo")
+
+### Packages and Data
+
+```{r load-packages, message=FALSE}
+library(tidyverse) 
+library(ggplot2)
 ```
 
-This template repository for the IDS lab is currently under construction. 👷🔨
+```{r diamon_rename}
+diamonds <- diamonds %>% rename(
+    depth_pct = depth,
+    length_mm = x,
+    width_mm = y,
+    depth_mm = z,
+    table_pct = table
+  )
+```
 
-Please return back to this page later in the course.
+
+## Exercise 1
+
+```{r}
+# Do some preliminary investigations & cleaning
 
 
-## In the meantime...
-
-Have a look at the following data from the `datasauRus` package. Each data set has the same mean, variance and correlation values, but they all look different!
 
 
+```
 
-```{r datasuRus, message = FALSE, fig.height=10}
-library(datasauRus)
-library(tidyverse)
-library(ggplot2)
 
-ggplot(datasaurus_dozen, aes(x = x, y = y, colour = dataset))+
-    geom_point()+
-    theme(legend.position = "none")+
-    facet_wrap(~dataset, ncol = 3)
+## Exercise 2
 
-datasaurus_dozen %>% 
-    group_by(dataset) %>% 
-    summarize(
-      mean_x    = mean(x),
-      mean_y    = mean(y),
-      std_dev_x = sd(x),
-      std_dev_y = sd(y),
-      corr_x_y  = cor(x, y)
-    )
+```{r}
+
+diamonds <- diamonds %>%
+  mutate(table_mm = table_pct * width_mm / 100)
+
+# Overall table_mm arithmetic mean?
+
+
+
+
+
+
+# table_mm arithmetic mean within each clarity category
+
+
+
+
+
+
+```
+
+_Add your comment here_
+
+## Exercise 3
+
+_Do derivation on paper, unless you know how to write LaTeX code_
+
+
+## Exercise 4
+
+```{r}
+# Write gmean() command
+
+
+
+```
+
+## Exercise 5
+
+```{r, error = TRUE}
+
+test_data <- list(
+  test1 = c(2.1, 3.8, 4.2),
+  test2 = c(1, 10, 100, 1000),
+  test3 = c(0, 1, 4),
+  test4 = c(0.38,  0.94, -1.56),
+  test5 = c(TRUE, TRUE),
+  test6 = c("6", "7", "8")
+)
+
+
+# Create for loop to test gmean() on the above examples
+
+
+```
+
+
+## Exercise 6
+
+```{r}
+# Copy gmean() from Ex4 and edit it to check the input
+
+
+
+
+
+# Copy your code from Ex 5 to test your new command
+
+
+
+
+
+```
+
+
+## Exercise 7
+
+```{r}
+# Overall table_mm geometic mean?
+
+
+
+
+
+
+# table_mm geometic mean within each clarity category
+
+
+
+
+
+
+```
+
+_Add your comment here_
+
+
+## Exercise 8 (optional)
+
+```{r}
+# Create gmean2() that computes the geometric mean 
+#   that uses the original definition
+
+
+
+
+
+
+```
+
+
+## Exercise 9 (optional)
+
+```{r}
+# Create a function that computes the harmonic mean
+
+
+
+
+
+
+
 ```
